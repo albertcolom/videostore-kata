@@ -1,6 +1,6 @@
 <?php
 
-namespace video;
+namespace video\Movie;
 
 /**
  * Class ChildrensMovie
@@ -14,21 +14,6 @@ class ChildrensMovie extends Movie
     public function __construct($title)
     {
         parent::__construct($title);
-    }
-
-    /**
-     * @param $daysRented
-     * @return float
-     */
-    public function determineAmount($daysRented) : float
-    {
-        $thisAmount = 1.5;
-
-        if ($daysRented > 3) {
-            $thisAmount += ($daysRented - 3) * 1.5;
-        }
-
-        return $thisAmount;
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace video;
+namespace video\Movie;
 
 /**
  * Class Movie
@@ -27,8 +27,6 @@ abstract class Movie
     {
         return $this->title;
     }
-
-    abstract public function determineAmount($daysRented) : float;
 
     abstract public function determineFrequentRenterPoints($daysRented) : int;
 }

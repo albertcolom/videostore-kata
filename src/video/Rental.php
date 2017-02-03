@@ -2,6 +2,9 @@
 
 namespace video;
 
+use video\AmountStrategy\AmountStrategyContext;
+use video\Movie\Movie;
+
 /**
  * Class Rental
  */
@@ -39,6 +42,15 @@ class Rental
      */
     public function determineAmount() : float
     {
-        return $this->movie->determineAmount($this->daysRented);
+        $strategyContext = new AmountStrategyContext(new AmountStrategies());
+        return $strategyContext->calculate($this->movie, $this->daysRented);
+    }
+
+    /**
+     * @return int
+     */
+    public function determineFrequentRenterPoints() : int
+    {
+        return $this->movie->determineFrequentRenterPoints($this->daysRented);
     }
 }

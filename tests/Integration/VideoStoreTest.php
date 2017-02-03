@@ -1,12 +1,12 @@
 <?php
 
-namespace tests;
+namespace tests\Integration;
 
 use PHPUnit_Framework_TestCase;
-use video\ChildrensMovie;
-use video\Movie;
-use video\NewReleaseMovie;
-use video\RegularMovie;
+use video\Movie\ChildrensMovie;
+use video\Movie\Movie;
+use video\Movie\NewReleaseMovie;
+use video\Movie\RegularMovie;
 use video\Rental;
 use video\RentalStatement;
 
