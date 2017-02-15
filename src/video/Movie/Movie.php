@@ -2,25 +2,26 @@
 
 namespace video\Movie;
 
-/**
- * Class Movie
- */
-abstract class Movie
+class Movie
 {
     /** @var  string */
     private $title;
 
+    /** @var MovieType  */
+    private $movieType;
+
     /**
      * Movie constructor.
-     * @param $title
+     * @param string $title
+     * @param MovieType $movieType
      */
-    public function __construct($title)
+    public function __construct(string $title, MovieType $movieType)
     {
         $this->title = $title;
+        $this->movieType = $movieType;
     }
 
     /**
-     * Title accessor.
      * @return string
      */
     public function title() : string
@@ -28,5 +29,11 @@ abstract class Movie
         return $this->title;
     }
 
-    abstract public function determineFrequentRenterPoints($daysRented) : int;
+    /**
+     * @return MovieType
+     */
+    public function movieType() : MovieType
+    {
+        return $this->movieType;
+    }
 }
