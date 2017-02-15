@@ -4,6 +4,7 @@ namespace video;
 
 use video\AmountStrategy\AmountStrategyContext;
 use video\Movie\Movie;
+use video\RentalPointStrategy\RentalPointStrategyContext;
 
 /**
  * Class Rental
@@ -21,7 +22,7 @@ class Rental
      * @param Movie $movie
      * @param int $daysRented
      */
-    public function __construct($movie, $daysRented)
+    public function __construct(Movie $movie, int $daysRented)
     {
         $this->movie = $movie;
         $this->daysRented = $daysRented;
@@ -51,6 +52,7 @@ class Rental
      */
     public function determineFrequentRenterPoints() : int
     {
-        return $this->movie->determineFrequentRenterPoints($this->daysRented);
+        $strategyContext = new RentalPointStrategyContext(new RentalPointStrategies());
+        return $strategyContext->calculate($this->movie, $this->daysRented);
     }
 }
