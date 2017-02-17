@@ -2,10 +2,6 @@
 
 namespace video\AmountStrategy;
 
-/**
- * Interface AmountStrategy
- * @package video\AmountStrategy
- */
 interface AmountStrategy
 {
     /**

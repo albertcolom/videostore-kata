@@ -29,21 +29,10 @@ class AmountStrategyContext
 
     /**
      * @param Movie $movie
-     * @return mixed
+     * @return AmountStrategy
      */
-    public function getAmountStrategyByMovie(Movie $movie)
+    public function getAmountStrategyByMovie(Movie $movie) : AmountStrategy
     {
-        $movieType = $this->getClassName($movie);
-        return $this->strategies[$movieType];
-    }
-
-    /**
-     * @param $class
-     * @return string
-     */
-    private function getClassName($class) : string
-    {
-        $path = explode('\\', get_class($class));
-        return end($path);
+        return $this->strategies[$movie->movieType()->type()];
     }
 }

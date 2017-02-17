@@ -4,6 +4,7 @@ namespace video;
 
 use video\AmountStrategy\AmountProportionalStrategy;
 use video\AmountStrategy\AmountRegularStrategy;
+use video\Movie\MovieType;
 
 class AmountStrategies implements Strategies
 {
@@ -13,9 +14,9 @@ class AmountStrategies implements Strategies
     public function settings() :array
     {
         return [
-            'RegularMovie' => new AmountProportionalStrategy(2, 2, 1.5),
-            'ChildrensMovie' => new AmountProportionalStrategy(1.5, 3, 1.5),
-            'NewReleaseMovie' => new AmountRegularStrategy(3)
+            MovieType::REGULAR => new AmountProportionalStrategy(2, 2, 1.5),
+            MovieType::CHILDREN => new AmountProportionalStrategy(1.5, 3, 1.5),
+            MovieType::NEW_RELEASE => new AmountRegularStrategy(3)
         ];
     }
 }

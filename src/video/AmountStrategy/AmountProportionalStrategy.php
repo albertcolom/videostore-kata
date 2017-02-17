@@ -13,12 +13,6 @@ class AmountProportionalStrategy implements AmountStrategy
     /** @var float */
     private $price;
 
-    /**
-     * AmountRegularStrategy constructor.
-     * @param float $amount
-     * @param int $days
-     * @param float $price
-     */
     public function __construct(float $amount, int $days, float $price)
     {
         $this->amount = $amount;
