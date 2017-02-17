@@ -1,9 +1,11 @@
 <?php
 
-namespace video;
+namespace video\Rental;
 
+use video\AmountStrategies;
 use video\AmountStrategy\AmountStrategyContext;
 use video\Movie\Movie;
+use video\RentalPointStrategies;
 use video\RentalPointStrategy\RentalPointStrategyContext;
 
 /**
