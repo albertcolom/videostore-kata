@@ -3,13 +3,10 @@
 namespace tests\Integration;
 
 use PHPUnit_Framework_TestCase;
-use video\Movie\ChildrensMovie;
 use video\Movie\Movie;
-use video\Movie\NewReleaseMovie;
-use video\Movie\RegularMovie;
-use video\Rental;
-use video\RentalStatement;
-
+use video\Movie\MovieType;
+use video\Rental\Rental;
+use video\Rental\RentalStatement;
 
 /**
  * Class VideoStoreTest
@@ -37,12 +34,12 @@ class VideoStoreTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->statement = new RentalStatement('Customer Name');
-        $this->newRelease1 = new NewReleaseMovie('New Release 1');
-        $this->newRelease2 = new NewReleaseMovie('New Release 2');
-        $this->childrens = new ChildrensMovie('Childrens');
-        $this->regular1 = new RegularMovie('Regular 1');
-        $this->regular2 = new RegularMovie('Regular 2');
-        $this->regular3 = new RegularMovie('Regular 3');
+        $this->newRelease1 = new Movie('New Release 1', MovieType::buildNewReleaseType());
+        $this->newRelease2 = new Movie('New Release 2', MovieType::buildNewReleaseType());
+        $this->childrens = new Movie('Childrens', MovieType::buildChildrenMovieType());
+        $this->regular1 = new Movie('Regular 1', MovieType::buildRegularMovieType());
+        $this->regular2 = new Movie('Regular 2', MovieType::buildRegularMovieType());
+        $this->regular3 = new Movie('Regular 3', MovieType::buildRegularMovieType());
     }
 
     /**
